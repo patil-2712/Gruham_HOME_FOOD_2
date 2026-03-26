@@ -72,7 +72,7 @@ const VALIDATORS = {
     else if (!/^[A-Z]{5}[0-9]{4}[A-Z]$/.test(d.pan)) e.pan = "Invalid PAN (e.g. ABCDE1234F)";
     if (d.gstNumber && !/^\d{2}[A-Z]{5}[0-9]{4}[A-Z][1-9A-Z]Z[0-9A-Z]$/.test(d.gstNumber))
       e.gstNumber = "Invalid GST (e.g. 22ABCDE1234F1Z5)";
-    if (!d.glAccount?._id) e.glAccount = "GL Account is required";
+ 
     return e;
   },
   5: (d) => {
@@ -550,7 +550,7 @@ export default function SupplierManagement() {
             </div>
           </div>
           <div className="border-t border-gray-100 pt-4">
-            <Lbl text="GL Account" req />
+            <Lbl text="GL Account"  />
             <AccountSearch value={sd.glAccount} onSelect={sel => { setSd(p => ({ ...p, glAccount: sel })); clearErr("glAccount"); }} />
             <Err k="glAccount" />
           </div>
